@@ -23,7 +23,7 @@ Type Preference
 - Assertive: ice
 - Determined: fighting
 - Rugged: poison
-- Modest: ground
+- Earthy: ground
 - Plucky: flying
 - Thoughtful: psychic
 - Chatty: bug
@@ -54,6 +54,7 @@ Phobias
 - Mysophobia: germs, dirt (ground and rock)
 - Traumatophobia: injury (fighting)
 - Draconophobia: dragon
+- Neraidaphobia: fairy
 
 Numbers
 - Heptadekaphobia: number 17

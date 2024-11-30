@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import Trainer from "../db/trainers.js";
+import Trait from "../db/traits.js";
+import { getTrainerList as getFakeTrainerList } from "../utils/faker.js";
 
 export const getTrainerList = async (req: Request, res: Response) => {
     try {
@@ -57,6 +59,19 @@ export const deleteTrainer = async (req: Request, res: Response) => {
         } else {
             res.status(200).json({ message: 'Deleted trainer ' + id})
         }
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+export const getGeneratedTrainerList = async (req: Request, res: Response) => {
+    try {
+        const traitList = await Trait.find({});
+        const list = getFakeTrainerList(
+            3,
+            traitList.map(item => item._id.toString())
+        );
+        res.status(200).json(list);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }

@@ -1,14 +1,16 @@
 import mongoose from "mongoose";
 
-interface Trainer {
+export interface TrainerType {
     firstName: string,
     lastName: string,
+    gender?: string,
+    bio?: string,
     pokemon?: any[],
-    traits?: any[],
-    flaws?: any[]
+    traitIdList?: any[],
+    flawIdsList?: any[]
 }
 
-const TrainerSchema = new mongoose.Schema<Trainer>({
+const TrainerSchema = new mongoose.Schema<TrainerType>({
     firstName: {
         type: String,
         required: [true, "First name is required."],
@@ -17,15 +19,21 @@ const TrainerSchema = new mongoose.Schema<Trainer>({
         type: String,
         required: [true, "Last name is required."],
     },
+    gender: {
+        type: String
+    },
+    bio: {
+        type: String
+    },
     pokemon: {
         type: Array,
         default: []
     },
-    traits: {
+    traitIdList: {
         type: Array,
         default: []
     },
-    flaws: {
+    flawIdsList: {
         type: Array,
         default: []
     }
