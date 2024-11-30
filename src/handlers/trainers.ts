@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Trainer from "../db/trainers.js";
 
-export const getTrainersList = async (req: Request, res: Response) => {
+export const getTrainerList = async (req: Request, res: Response) => {
     try {
         const list = await Trainer.find({});
         res.status(200).json(list);

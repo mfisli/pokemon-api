@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from "mongoose";
 import trainersRouter from "./routes/trainers.js"
 import traitsRouter from "./routes/traits.js";
+import elementalTypesRouter from "./routes/elementalTypes.js";
 import secrets from "./secrets.js";
 
 // MongoDB
@@ -25,6 +26,7 @@ app.use(express.json());
 
 app.use('/api/trainers', trainersRouter);
 app.use('/api/traits', traitsRouter);
+app.use('/api/elementalTypes', elementalTypesRouter);
 
 app.get("/test", (req: Request, res: Response, next: NextFunction) => {
     res.send(new Date().toLocaleTimeString() + " server is up");

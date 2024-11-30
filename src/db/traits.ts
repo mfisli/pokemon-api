@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 interface Trait {
     name: string,
-    targetTypeList: string[],
+    elementalTypeIdList: string[],
 }
 
 const TraitSchema = new mongoose.Schema<Trait>({
@@ -10,7 +10,7 @@ const TraitSchema = new mongoose.Schema<Trait>({
         type: String,
         required: [true, "Name is required."],
     },
-    targetTypeList: {
+    elementalTypeIdList: {
         type: [String],
         default: []
     }
