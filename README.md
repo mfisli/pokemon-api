@@ -1,5 +1,4 @@
 # Pokemon API
-
 Not totally sure what I want to do with this API yet, but it will be inspired by https://pokeapi.co/.
 
 ## Endpoints

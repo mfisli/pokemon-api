@@ -2,7 +2,8 @@ import express, { NextFunction, Request, Response } from "express";
 import { createServer } from "http";
 import cors from 'cors';
 import mongoose from "mongoose";
-import router from "./routes/trainers.js"
+import trainersRouter from "./routes/trainers.js"
+import traitsRouter from "./routes/traits.js";
 import secrets from "./secrets.js";
 
 // MongoDB
@@ -22,7 +23,8 @@ app.use(
 )
 app.use(express.json());
 
-app.use('/api/trainers', router);
+app.use('/api/trainers', trainersRouter);
+app.use('/api/traits', traitsRouter);
 
 app.get("/test", (req: Request, res: Response, next: NextFunction) => {
     res.send(new Date().toLocaleTimeString() + " server is up");

@@ -3,10 +3,10 @@ import { createTrainer, deleteTrainer, getTrainer, getTrainersList, updateTraine
 
 const router = Router();
 
-router.get('/', getTrainersList)
-router.get('/:id', getTrainer)
-router.post('/', createTrainer)
-router.patch('/:id', updateTrainer)
-router.delete('/:id', deleteTrainer)
+router.get('/', getTrainersList);
+router.get('/:id', getTrainer);
+router.post('/', createTrainer);
+router.patch('/:id', updateTrainer);
+router.delete('/:id', deleteTrainer);
 
 export default router;
