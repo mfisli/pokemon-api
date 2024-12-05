@@ -6,6 +6,11 @@ import trainersRouter from "./routes/trainers.js"
 import traitsRouter from "./routes/traits.js";
 import elementalTypesRouter from "./routes/elementalTypes.js";
 import secrets from "./secrets.js";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // MongoDB
 const database = 'pokemon-api';
@@ -25,8 +30,9 @@ app.use(express.json());
 app.use('/api/trainers', trainersRouter);
 app.use('/api/traits', traitsRouter);
 app.use('/api/elementalTypes', elementalTypesRouter);
+app.use('/images/trainers', express.static(__dirname + '/images/trainers'));
 
-app.get("/test", (req: Request, res: Response, next: NextFunction) => {
+app.get("/test", (req: Request, res: Response) => {
     res.send(new Date().toLocaleTimeString() + " server is up");
 })
 

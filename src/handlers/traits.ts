@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import Trait from "../db/traits.js";
+import Trait, { TraitType } from "../db/traits.js";
+import mongoose from "mongoose";
 
 export const getTraitList = async (req: Request, res: Response) => {
     try {
@@ -26,7 +27,11 @@ export const getTrait = async (req: Request, res: Response) => {
 
 export const createTrait = async (req: Request, res: Response) => {
     try {
-        const item = await Trait.create(req.body);
+        const body: TraitType = req.body;
+        body.elementalTypeIdList = body.elementalTypeIdList
+            .map(item => new mongoose.Types.ObjectId(item));
+        console.log("createTrait body", body);
+        const item = await Trait.create(body);
         res.status(200).json(item);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
@@ -36,7 +41,10 @@ export const createTrait = async (req: Request, res: Response) => {
 export const updateTrait = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
-        const item = await Trait.findByIdAndUpdate(id, req.body);
+        const body: TraitType = req.body;
+        body.elementalTypeIdList = body.elementalTypeIdList
+            .map(item => new mongoose.Types.ObjectId(item));
+        const item = await Trait.findByIdAndUpdate(id, body);
         if (!item) {
             res.status(404).json({ message: 'Trait not found'});
         } else {

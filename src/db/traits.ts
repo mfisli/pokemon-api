@@ -1,17 +1,17 @@
-import mongoose from "mongoose";
+import mongoose, { Types } from "mongoose";
 
-interface Trait {
+export interface TraitType {
     name: string,
-    elementalTypeIdList: string[],
+    elementalTypeIdList: Types.ObjectId[],
 }
 
-const TraitSchema = new mongoose.Schema<Trait>({
+const TraitSchema = new mongoose.Schema<TraitType>({
     name: {
         type: String,
         required: [true, "Name is required."],
     },
     elementalTypeIdList: {
-        type: [String],
+        type: [Types.ObjectId],
         default: []
     }
 });

@@ -12,7 +12,7 @@ Not totally sure what I want to do with this API yet, but it will be inspired by
 - Something like "hot-headed" that makes them prefer damaging moves
 
 ### /traits
-Might be for trainers to flavour their style of battle
+Trainers have traits that offer better handling of certain pokemon types.
 
 Type Preference
 - Practical: normal
