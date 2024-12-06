@@ -1,5 +1,7 @@
 import { Router } from 'express';
-import { createElementalType,
+
+import {
+    createElementalType,
     deleteElementalType,
     getElementalType,
     getElementalTypeList,

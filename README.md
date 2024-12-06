@@ -3,6 +3,14 @@ Not totally sure what I want to do with this API yet, but it will be inspired by
 
 ## Endpoints
 
+### /pokemonarchetype
+- Represents a pokemon in an abstract form
+- Purpose is to offer reasonable characteristics for generating specific pokemon
+- eg A bulbasaur archetype contains all the information and constraints to create a bulbasaur
+  - A generator would create a bulbasaur, for example, and assign characteristics
+  - It might vary the weight, height, gender, moves, sprite, ect., for each instance
+  - But such characteristics are kept within archetypal bounds
+
 ### /pokemon
 - Represents the pocket monsters with names, image, and stats, like type, weight, moves, cries ...
 
@@ -60,3 +68,19 @@ Numbers
 - Heptadekaphobia: number 17
 - Tetraphobia: number 4
 - Triskaidekaphobia: number 13
+
+# Frontend Notes
+
+/trainers
+- List of current staff
+- List of canadiates to optionally hire as staff
+
+/trainers/:id
+- Edit form for a specific trainer
+
+/pokemon
+- List of current pokemon
+- List of catch pokemon to optionally add to collection
+
+/pokemon/:id
+- Edit form for a specific pokemon

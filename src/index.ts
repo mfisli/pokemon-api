@@ -1,10 +1,12 @@
-import express, { NextFunction, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import { createServer } from "http";
 import cors from 'cors';
 import mongoose from "mongoose";
 import trainersRouter from "./routes/trainers.js"
 import traitsRouter from "./routes/traits.js";
 import elementalTypesRouter from "./routes/elementalTypes.js";
+import pokemonArchetypesRouter from "./routes/PokemonArchetypes.js";
+import pokemonRouter from "./routes/pokemon.js";
 import secrets from "./secrets.js";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
@@ -27,13 +29,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Routes
 app.use('/api/trainers', trainersRouter);
 app.use('/api/traits', traitsRouter);
 app.use('/api/elementalTypes', elementalTypesRouter);
+app.use('/api/pokemonArchetypes', pokemonArchetypesRouter);
+app.use('/api/pokemon', pokemonRouter);
 app.use('/images/trainers', express.static(__dirname + '/images/trainers'));
 
-app.get("/test", (req: Request, res: Response) => {
-    res.send(new Date().toLocaleTimeString() + " server is up");
+app.get("/api/test", (req: Request, res: Response) => {
+    res.status(200).json({
+        message: `${new Date().toDateString()} ${new Date().toTimeString()} server is up`
+    });
 })
 
 const server = createServer(app);
