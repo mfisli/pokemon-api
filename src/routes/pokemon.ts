@@ -5,7 +5,8 @@ import {
     getPokemon,
     createPokemon,
     updatePokemon,
-    deletePokemon
+    deletePokemon,
+    getGeneratedPokemonList
 } from '../handlers/pokemon.js';
 
 const router = Router();
@@ -13,6 +14,7 @@ const router = Router();
 router.get('/', getPokemonList);
 router.get('/:id', getPokemon);
 router.post('/', createPokemon);
+router.post('/generate', getGeneratedPokemonList);
 router.patch('/:id', updatePokemon);
 router.delete('/:id', deletePokemon);
 

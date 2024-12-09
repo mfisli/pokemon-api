@@ -45,6 +45,7 @@ export const getTrainer = async (traitIdList: Types.ObjectId[]): Promise<Trainer
     })
 }
 
+// TODO: These promises look wrong
 export const getTrainerList = async (length: number, traitIdList: Types.ObjectId[]) => {
     return Promise.all([...Array(length)]
             .map(async () => await getTrainer([getRandomItem<Types.ObjectId>(traitIdList)])))

@@ -3,8 +3,9 @@ import { IPokemonArchetype } from "./pokemonArchetypes.js";
 
 export const pokemonStatuses = {
     wild: "wild",
-    feral: "feral",
-    tame: "tame"
+    caught: "caught",
+    tame: "tame",
+    feral: "feral"
 } as const;
 
 export interface IPokemon extends IPokemonArchetype {
@@ -19,7 +20,7 @@ export const PokemonSchema = new Schema<IPokemon>({
     },
     name: {
         type: String,
-        required: [true, "Name is required."],
+        required: [true, "Pokemon name is required."],
     },
     nickName: {
         type: String

@@ -80,7 +80,11 @@ Numbers
 
 /pokemon
 - List of current pokemon
-- List of catch pokemon to optionally add to collection
+- List of caught pokemon to optionally add to collection
 
 /pokemon/:id
 - Edit form for a specific pokemon
+
+
+# Improvements
+- https://github.blog/developer-skills/github/include-diagrams-markdown-files-mermaid/
